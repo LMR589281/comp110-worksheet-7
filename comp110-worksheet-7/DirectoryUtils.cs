@@ -64,23 +64,18 @@ namespace comp110_worksheet_7
 		public static Tuple<string, long> GetSmallestFile(string directory)
 		{
             long smallest = 1000000;
-            int i = 0;
             string[] list = Directory.GetFileSystemEntries(directory);
-            bool loop = true;
-            while (loop == true)
+            for (int i=0 ; GetDepth(directory)>i; i++) 
             {
                 if (IsDirectory(list[i]) == true) {
+			smallest = GetSmallestFile(list[i])
                 }
                 else if (IsDirectory(list[i]) == false) {
                     if (GetFileSize(list[i]) < smallest)
                     {
                         smallest = GetFileSize(list[i]);
                     }
-                    i = +1;
                 }
-
-
-
             }
             return depth;
         }
@@ -88,7 +83,22 @@ namespace comp110_worksheet_7
 		// Get the path and size (in bytes) of the largest file below the given directory
 		public static Tuple<string, long> GetLargestFile(string directory)
 		{
-			throw new NotImplementedException();
+            long largest = 0;
+            string[] list = Directory.GetFileSystemEntries(directory);
+            for (int i=0 ; GetDepth(directory)>i; i++) 
+            {
+                if (IsDirectory(list[i]) == true) {
+			largest = GetSmallestFile(list[i])
+                }
+                else if (IsDirectory(list[i]) == false) {
+                    if (GetFileSize(list[i]) > largest)
+                    {
+                        largest = GetFileSize(list[i]);
+                    }
+                }
+            }
+            return depth;
+        }
 		}
 
 		// Get all files whose size is equal to the given value (in bytes) below the given directory
