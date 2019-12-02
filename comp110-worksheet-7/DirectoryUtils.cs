@@ -12,9 +12,9 @@ namespace comp110_worksheet_7
 		// Return the size, in bytes, of the given file
 		public static long GetFileSize(string filePath)
 		{
-            long size = GetFileSize(filePath);    //get the file size of the given file
+            long size = Fileinfo(filePath).length;    //get the file size of the given file
             return size;    //returns the size
-        }
+       		}
 
 		// Return true if the given path points to a directory, false if it points to a file
 		public static bool IsDirectory(string path)
