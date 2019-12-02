@@ -12,7 +12,7 @@ namespace comp110_worksheet_7
 		// Return the size, in bytes, of the given file
 		public static long GetFileSize(string filePath)
 		{
-            long size = Fileinfo(filePath).length;    //get the file size of the given file
+            long size = FileInfo(filePath).length;    //get the file size of the given file
             return size;    //returns the size
        		}
 
